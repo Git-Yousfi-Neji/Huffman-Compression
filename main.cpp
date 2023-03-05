@@ -1,18 +1,28 @@
+#include <cstring>
 #include <iostream>
+#include <string>
 #include "include/huffman.h"
 
-int main() {
-    // Encode a file
-    std::string input_file_path = "../test/input.txt";
-    std::string encoded_file_path = "../test/encoded.bin";
+
+int main(int argc, char* argv[]) {
+    if (argc != 3) {
+        std::cerr << "Usage: " << argv[0] << " [-c|-d] <filename>\n";
+        return 1;
+    } 
     Huffman huffman;
-    huffman.encode(input_file_path, encoded_file_path);
-    std::cout << "File " << input_file_path << " has been encoded and written to " << encoded_file_path << std::endl;
-
-    // Decode the encoded file
-    std::string decoded_file_path = "../test/decoded.txt";
-    huffman.decode(encoded_file_path, decoded_file_path);
-    std::cout << "File " << encoded_file_path << " has been decoded and written to " << decoded_file_path << std::endl;
-
+    if (std::strcmp(argv[1], "-c") == 0) {
+        std::cout<<argv[2]<<std::endl;
+    // Encode the input file
+        huffman.encode(argv[2], "encoded.bin");
+        
+    }
+    if (std::strcmp(argv[1], "-d") == 0) {
+        std::cout<<argv[2]<<std::endl;
+        // Decode the encoded file
+        huffman.decode(argv[2], "decoded.txt");
+        
+    }
     return 0;
 }
+
+

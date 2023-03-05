@@ -12,7 +12,7 @@ struct NodeCompare {
 };
 
 //Huffman::Huffman() {}
-Huffman::Huffman() : root(nullptr) {}
+Huffman::Huffman()  {}
 
 
 Huffman::~Huffman() {
@@ -20,6 +20,7 @@ Huffman::~Huffman() {
 }
 
 void Huffman::encode(std::string input_file_path, std::string output_file_path) {
+    a+=10;
     // Open input file for reading
     std::ifstream input_file(input_file_path, std::ios::in | std::ios::binary);
     if (!input_file) {
@@ -78,47 +79,10 @@ void Huffman::encode(std::string input_file_path, std::string output_file_path) 
     input_file.close();
     output_file.close();
 }
-/*
+
+
 void Huffman::decode(std::string input_file_path, std::string output_file_path) {
-    // Open input file for reading
-    std::ifstream input_file(input_file_path, std::ios::in | std::ios::binary);
-    if (!input_file) {
-        std::cerr << "Error: Unable to open input file " << input_file_path << std::endl;
-        return;
-    }
-
-    // Create output file for writing
-    std::ofstream output_file(output_file_path, std::ios::out | std::ios::binary);
-    if (!output_file) {
-        std::cerr << "Error: Unable to open output file " << output_file_path << std::endl;
-        return;
-    }
-
-    // Read the Huffman codes from the input file
-    std::vector<std::bitset<8>> code_bits;
-    char c;
-    while (input_file.get(c)) {
-        std::bitset<8> byte(c);
-        for (int i = 0; i < 8;i++) {
-code_bits.push_back(byte[i]);
-}
-} 
-// Traverse the Huffman tree to decode the input file
-Node* node = root;
-for (std::bitset<8> bit : code_bits) {
-    if (bit == 0) {
-        node = node->left;
-    } else {
-        node = node->right;
-    }
-    if (node->is_leaf()) {
-        output_file.put(node->symbol);
-        node = root;
-    }
-}
-
-*/
-void Huffman::decode(std::string input_file_path, std::string output_file_path) {
+a+=20;
     // Open input file for reading
     std::ifstream input_file(input_file_path, std::ios::in | std::ios::binary);
     if (!input_file) {

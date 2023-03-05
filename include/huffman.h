@@ -18,11 +18,12 @@ class Huffman {
 public:
     Huffman();
     ~Huffman();
+    int a=0;
     
     void encode(std::string input_file_path, std::string output_file_path);
     void decode(std::string input_file_path, std::string output_file_path);
 private:
-    Node* root;
+    Node* root=nullptr;
     Node* construct_huffman_tree(std::unordered_map<char, int> & frequencies);
     
     
